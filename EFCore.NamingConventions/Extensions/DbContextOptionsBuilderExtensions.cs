@@ -1,12 +1,11 @@
 using System.Globalization;
+using EFCore.NamingConventions;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using JetBrains.Annotations;
-using EFCore.NamingConventions.Internal;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.EntityFrameworkCore;
 
-public static class NamingConventionsExtensions
+public static class DbContextOptionsBuilderExtensions
 {
     public static DbContextOptionsBuilder UseSnakeCaseNamingConvention(
         this DbContextOptionsBuilder optionsBuilder,
@@ -26,7 +25,8 @@ public static class NamingConventionsExtensions
     public static DbContextOptionsBuilder<TContext> UseSnakeCaseNamingConvention<TContext>(
         this DbContextOptionsBuilder<TContext> optionsBuilder , CultureInfo? culture = null)
         where TContext : DbContext
-        => (DbContextOptionsBuilder<TContext>)UseSnakeCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
+        => (DbContextOptionsBuilder<TContext>)
+            UseSnakeCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
 
     public static DbContextOptionsBuilder UseLowerCaseNamingConvention(
         this DbContextOptionsBuilder optionsBuilder,
@@ -47,7 +47,8 @@ public static class NamingConventionsExtensions
         this DbContextOptionsBuilder<TContext> optionsBuilder,
         CultureInfo? culture = null)
         where TContext : DbContext
-        => (DbContextOptionsBuilder<TContext>)UseLowerCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder ,culture);
+        => (DbContextOptionsBuilder<TContext>)
+            UseLowerCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder ,culture);
 
     public static DbContextOptionsBuilder UseUpperCaseNamingConvention(
         this DbContextOptionsBuilder optionsBuilder,
@@ -68,7 +69,8 @@ public static class NamingConventionsExtensions
         this DbContextOptionsBuilder<TContext> optionsBuilder,
         CultureInfo? culture = null)
         where TContext : DbContext
-        => (DbContextOptionsBuilder<TContext>)UseUpperCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
+        => (DbContextOptionsBuilder<TContext>)
+            UseUpperCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
 
     public static DbContextOptionsBuilder UseUpperSnakeCaseNamingConvention(
         this DbContextOptionsBuilder optionsBuilder,
@@ -89,7 +91,8 @@ public static class NamingConventionsExtensions
         this DbContextOptionsBuilder<TContext> optionsBuilder,
         CultureInfo? culture = null)
         where TContext : DbContext
-        => (DbContextOptionsBuilder<TContext>)UseUpperSnakeCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
+        => (DbContextOptionsBuilder<TContext>)
+            UseUpperSnakeCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
 
     public static DbContextOptionsBuilder UseCamelCaseNamingConvention(
         this DbContextOptionsBuilder optionsBuilder,
@@ -110,5 +113,6 @@ public static class NamingConventionsExtensions
         this DbContextOptionsBuilder<TContext> optionsBuilder,
         CultureInfo? culture = null)
         where TContext : DbContext
-        => (DbContextOptionsBuilder<TContext>)UseCamelCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
+        => (DbContextOptionsBuilder<TContext>)
+            UseCamelCaseNamingConvention((DbContextOptionsBuilder)optionsBuilder, culture);
 }

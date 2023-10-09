@@ -1,4 +1,4 @@
-namespace EFCore.NamingConventions.Internal;
+namespace EFCore.NamingConventions.Interfaces;
 
 public interface INameRewriter
 {

@@ -1,16 +1,11 @@
-using System;
 using System.Globalization;
 using System.Text;
+using EFCore.NamingConventions.Interfaces;
 
-namespace EFCore.NamingConventions.Internal;
+namespace EFCore.NamingConventions.Rewriters;
 
-public class SnakeCaseNameRewriter : INameRewriter
+public class SnakeCaseNameRewriter(CultureInfo culture) : INameRewriter
 {
-    private readonly CultureInfo _culture;
-
-    public SnakeCaseNameRewriter(CultureInfo culture)
-        => _culture = culture;
-
     public virtual string RewriteName(string name)
     {
         var builder = new StringBuilder(name.Length + Math.Min(2, name.Length / 5));
@@ -42,7 +37,7 @@ public class SnakeCaseNameRewriter : INameRewriter
                         builder.Append('_');
                     }
 
-                    currentChar = char.ToLower(currentChar, _culture);
+                    currentChar = char.ToLower(currentChar, culture);
                     break;
 
                 case UnicodeCategory.LowercaseLetter:

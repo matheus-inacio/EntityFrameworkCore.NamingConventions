@@ -1,5 +1,3 @@
-using System;
-
 // ReSharper disable once CheckNamespace
 namespace JetBrains.Annotations;
 
@@ -30,26 +28,21 @@ internal sealed class NoEnumerationAttribute : Attribute
 }
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-internal sealed class ContractAnnotationAttribute : Attribute
+internal sealed class ContractAnnotationAttribute([NotNull] string contract, bool forceFullStates) : Attribute
 {
-    public string Contract { get; }
-
-    public bool ForceFullStates { get; }
-
     public ContractAnnotationAttribute([NotNull] string contract)
         : this(contract, false)
     {
     }
 
-    public ContractAnnotationAttribute([NotNull] string contract, bool forceFullStates)
-    {
-        Contract = contract;
-        ForceFullStates = forceFullStates;
-    }
+    public string Contract { get; } = contract;
+
+    public bool ForceFullStates { get; } = forceFullStates;
 }
 
 [AttributeUsage(AttributeTargets.All)]
-internal sealed class UsedImplicitlyAttribute : Attribute
+internal sealed class UsedImplicitlyAttribute(ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
+    : Attribute
 {
     public UsedImplicitlyAttribute()
         : this(ImplicitUseKindFlags.Default, ImplicitUseTargetFlags.Default)
@@ -66,25 +59,17 @@ internal sealed class UsedImplicitlyAttribute : Attribute
     {
     }
 
-    public UsedImplicitlyAttribute(
-        ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
-    {
-        UseKindFlags = useKindFlags;
-        TargetFlags = targetFlags;
-    }
+    public ImplicitUseKindFlags UseKindFlags { get; } = useKindFlags;
 
-    public ImplicitUseKindFlags UseKindFlags { get; }
-    public ImplicitUseTargetFlags TargetFlags { get; }
+    public ImplicitUseTargetFlags TargetFlags { get; } = targetFlags;
 }
 
-[AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Delegate)]
-internal sealed class StringFormatMethodAttribute : Attribute
+[AttributeUsage(
+    AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Delegate)]
+internal sealed class StringFormatMethodAttribute([NotNull] string formatParameterName) : Attribute
 {
-    public StringFormatMethodAttribute([NotNull] string formatParameterName)
-        => FormatParameterName = formatParameterName;
-
     [NotNull]
-    public string FormatParameterName { get; }
+    public string FormatParameterName { get; } = formatParameterName;
 }
 
 [Flags]

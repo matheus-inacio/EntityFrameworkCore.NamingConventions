@@ -1,40 +1,39 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EFCore.NamingConventions.Internal;
+namespace EFCore.NamingConventions;
 
-public class NamingConventionsOptionsExtension : IDbContextOptionsExtension
+public sealed class NamingConventionsOptionsExtension : IDbContextOptionsExtension
 {
     private DbContextOptionsExtensionInfo? _info;
     private NamingConvention _namingConvention;
     private CultureInfo? _culture;
 
     public NamingConventionsOptionsExtension() {}
-    protected NamingConventionsOptionsExtension(NamingConventionsOptionsExtension copyFrom)
+
+    private NamingConventionsOptionsExtension(NamingConventionsOptionsExtension copyFrom)
     {
         _namingConvention = copyFrom._namingConvention;
         _culture = copyFrom._culture;
     }
 
-    public virtual DbContextOptionsExtensionInfo Info => _info ??= new ExtensionInfo(this);
+    public DbContextOptionsExtensionInfo Info => _info ??= new ExtensionInfo(this);
 
-    protected virtual NamingConventionsOptionsExtension Clone() => new(this);
+    private NamingConventionsOptionsExtension Clone() => new(this);
 
-    internal virtual NamingConvention NamingConvention => _namingConvention;
-    internal virtual CultureInfo? Culture => _culture;
+    internal NamingConvention NamingConvention => _namingConvention;
+    internal CultureInfo? Culture => _culture;
 
-    public virtual NamingConventionsOptionsExtension WithoutNaming()
+    public NamingConventionsOptionsExtension WithoutNaming()
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.None;
         return clone;
     }
 
-    public virtual NamingConventionsOptionsExtension WithSnakeCaseNamingConvention(CultureInfo? culture = null)
+    public NamingConventionsOptionsExtension WithSnakeCaseNamingConvention(CultureInfo? culture = null)
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.SnakeCase;
@@ -42,7 +41,7 @@ public class NamingConventionsOptionsExtension : IDbContextOptionsExtension
         return clone;
     }
 
-    public virtual NamingConventionsOptionsExtension WithLowerCaseNamingConvention(CultureInfo? culture = null)
+    public NamingConventionsOptionsExtension WithLowerCaseNamingConvention(CultureInfo? culture = null)
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.LowerCase;
@@ -50,7 +49,7 @@ public class NamingConventionsOptionsExtension : IDbContextOptionsExtension
         return clone;
     }
 
-    public virtual NamingConventionsOptionsExtension WithUpperCaseNamingConvention(CultureInfo? culture = null)
+    public NamingConventionsOptionsExtension WithUpperCaseNamingConvention(CultureInfo? culture = null)
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.UpperCase;
@@ -58,7 +57,7 @@ public class NamingConventionsOptionsExtension : IDbContextOptionsExtension
         return clone;
     }
 
-    public virtual NamingConventionsOptionsExtension WithUpperSnakeCaseNamingConvention(CultureInfo? culture = null)
+    public NamingConventionsOptionsExtension WithUpperSnakeCaseNamingConvention(CultureInfo? culture = null)
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.UpperSnakeCase;
@@ -66,7 +65,7 @@ public class NamingConventionsOptionsExtension : IDbContextOptionsExtension
         return clone;
     }
 
-    public virtual NamingConventionsOptionsExtension WithCamelCaseNamingConvention(CultureInfo? culture = null)
+    public NamingConventionsOptionsExtension WithCamelCaseNamingConvention(CultureInfo? culture = null)
     {
         var clone = Clone();
         clone._namingConvention = NamingConvention.CamelCase;

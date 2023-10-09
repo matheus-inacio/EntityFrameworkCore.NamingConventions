@@ -1,5 +1,5 @@
 using System.Globalization;
-using EFCore.NamingConventions.Internal;
+using EFCore.NamingConventions.Rewriters;
 using Xunit;
 
 namespace EFCore.NamingConventions.Test;
