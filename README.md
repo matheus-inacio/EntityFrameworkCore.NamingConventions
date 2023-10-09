@@ -18,7 +18,7 @@ SELECT c."Id", c."FullName"
 
 For PostgreSQL specifically, this forces double-quotes to be added since unquoted identifiers are automatically converted to lower-case - and all those quotes are an eye-sore. But even if we're using another database such as SQL Server, maybe we just hate seeing upper-case letters in our database, and would rather have another naming convention.
 
-Down with same-name identifier tyranny! Simply add a reference to [EFCore.NamingConventions](https://www.nuget.org/packages/EFCore.NamingConventions/) and enable a naming convention in your model's `OnConfiguring` method:
+Down with same-name identifier tyranny! Simply add a reference to [EntityFrameworkCore.NamingConventions](https://www.nuget.org/packages/EntityFrameworkCore.NamingConventions/) and enable a naming convention in your model's `OnConfiguring` method:
 
 ```c#
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -53,6 +53,7 @@ Have another naming convention in mind? Open an issue or even submit a PR - it's
 
 ## Important notes
 
+* This repository is a rewrite of the [EFCore.NamingConventions](https://github.com/efcore/EFCore.NamingConventions)
 * If you have an existing database, adding this naming convention will cause a migration to produced, renaming everything. Be very cautious when doing this (the process currently involves dropping and recreating primary keys).
 * This plugin will work with any relational database provider and isn't related to PostgreSQL or Npgsql in any way.
 * This is a community-maintained plugin: it isn't an official part of Entity Framework Core and isn't supported by Microsoft in any way.
