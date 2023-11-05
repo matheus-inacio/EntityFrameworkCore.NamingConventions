@@ -10,7 +10,7 @@ public static class ConventionPropertyBuilderExtensions
     internal static void RewriteColumnName(this IConventionPropertyBuilder propertyBuilder, INameRewriter nameRewriter)
     {
         var property = propertyBuilder.Metadata;
-        var entityType = property.DeclaringType;
+        var structuralType = property.DeclaringType;
 
         // Remove any previous setting of the column name
         // we may have done, so we can get the default
@@ -20,7 +20,7 @@ public static class ConventionPropertyBuilderExtensions
         // TODO: The following is a temporary hack. We should probably just always set the relational override below,
         // but https://github.com/dotnet/efcore/pull/23834
         string? baseColumnName;
-        if (StoreObjectIdentifier.Create(property.DeclaringType, StoreObjectType.Table) is { } tableIdentifier)
+        if (StoreObjectIdentifier.Create(structuralType, StoreObjectType.Table) is { } tableIdentifier)
         {
             baseColumnName = property.GetDefaultColumnName(tableIdentifier);
         }
@@ -36,7 +36,7 @@ public static class ConventionPropertyBuilderExtensions
 
         foreach (var storeObjectType in _storeObjectTypes)
         {
-            var identifier = StoreObjectIdentifier.Create(entityType, storeObjectType);
+            var identifier = StoreObjectIdentifier.Create(structuralType, storeObjectType);
             if (identifier is null)
             {
                 continue;
