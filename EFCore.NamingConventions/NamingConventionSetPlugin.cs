@@ -34,7 +34,6 @@ public class NamingConventionSetPlugin(IDbContextOptions options) : IConventionS
         conventionSet.EntityTypeAnnotationChangedConventions.Add(new EntityTypeAnnotationChangedConvention(rewriter));
         conventionSet.PropertyAddedConventions.Add(new PropertyAddedConvention(rewriter));
         conventionSet.ForeignKeyOwnershipChangedConventions.Add(new ForeignKeyOwnershipChangedConvention(rewriter));
-        conventionSet.ForeignKeyPropertiesChangedConventions.Add(new ForeignKeyPropertiesChangedConvention(rewriter));
         conventionSet.KeyAddedConventions.Add(new KeyAddedConvention(rewriter));
         conventionSet.ForeignKeyAddedConventions.Add(new ForeignKeyAddedConvention(rewriter));
         conventionSet.IndexAddedConventions.Add(new IndexAddedConvention(rewriter));
