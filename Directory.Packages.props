@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <EFCoreVersion>8.0.0-rc.1.23419.6</EFCoreVersion>
-    <MicrosoftExtensionsVersion>8.0.0-rc.1.23419.4</MicrosoftExtensionsVersion>
+    <EFCoreVersion>8.0.0-rc.2.23480.1</EFCoreVersion>
+    <MicrosoftExtensionsVersion>8.0.0-rc.2.23479.6</MicrosoftExtensionsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +11,8 @@
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
 
     <!-- Test -->
-    <PackageVersion Include="xunit" Version="2.5.1" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.1" />
+    <PackageVersion Include="xunit" Version="2.5.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(EFCoreVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(EFCoreVersion)" />
