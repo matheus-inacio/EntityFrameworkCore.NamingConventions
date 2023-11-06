@@ -1,4 +1,3 @@
-using System.Globalization;
 using EFCore.NamingConventions;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 

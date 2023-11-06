@@ -1,5 +1,4 @@
 using EFCore.NamingConventions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 using JetBrains.Annotations;

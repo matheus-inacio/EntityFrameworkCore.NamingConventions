@@ -1,7 +1,3 @@
-using System.Globalization;
-using System.Text;
-using EFCore.NamingConventions.Interfaces;
-
 namespace EFCore.NamingConventions.Rewriters;
 
 public class SnakeCaseNameRewriter(CultureInfo culture) : INameRewriter
