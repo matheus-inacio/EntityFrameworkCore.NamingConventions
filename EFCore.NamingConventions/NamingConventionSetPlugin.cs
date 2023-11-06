@@ -1,9 +1,6 @@
-using System.Globalization;
 using EFCore.NamingConventions.Conventions;
-using EFCore.NamingConventions.Interfaces;
 using EFCore.NamingConventions.Rewriters;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 
 namespace EFCore.NamingConventions;

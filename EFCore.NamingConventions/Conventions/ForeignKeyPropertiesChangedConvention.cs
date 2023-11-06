@@ -1,10 +1,4 @@
-﻿using EFCore.NamingConventions.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-
-namespace EFCore.NamingConventions.Conventions;
+﻿namespace EFCore.NamingConventions.Conventions;
 
 public class ForeignKeyPropertiesChangedConvention(INameRewriter nameRewriter) : IForeignKeyPropertiesChangedConvention
 {

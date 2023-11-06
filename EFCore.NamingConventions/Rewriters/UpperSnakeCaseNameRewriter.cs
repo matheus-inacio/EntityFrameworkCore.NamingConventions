@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace EFCore.NamingConventions.Rewriters;
+﻿namespace EFCore.NamingConventions.Rewriters;
 
 public class UpperSnakeCaseNameRewriter : SnakeCaseNameRewriter
 {

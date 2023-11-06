@@ -1,9 +1,4 @@
-﻿using EFCore.NamingConventions.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace EFCore.NamingConventions.Extensions;
+﻿namespace EFCore.NamingConventions.Extensions;
 
 public static class ConventionPropertyBuilderExtensions
 {
