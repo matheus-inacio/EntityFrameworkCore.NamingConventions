@@ -1,3 +1,7 @@
+> **ℹ️ Note:**  
+> For most use cases, we strongly recommend using the [EFCore.NamingConventions](https://github.com/efcore/EFCore.NamingConventions) library instead of this repository.  
+> EFCore.NamingConventions provides a robust and well-maintained solution for handling naming conventions in Entity Framework Core, making it the preferred choice for the majority of projects.
+
 # Naming Conventions for Entity Framework Core Tables and Columns
 
 [![Nuget](https://img.shields.io/nuget/v/EntityFrameworkCore.NamingConventions)](https://www.nuget.org/packages/EntityFrameworkCore.NamingConventions/)
